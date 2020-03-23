@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/month"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:text="January"
+        android:textAlignment="center" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <TableRow
+            android:id="@+id/week1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/week1day1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week1day2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="2"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week1day3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="3"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week1day4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="4"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week1day5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="5"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week1day6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="6"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week1day7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="7"
+                android:textAlignment="center" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/week2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/week2day1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="8"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week2day2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="9"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week2day3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="10"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week2day4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="11"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week2day5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="12"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week2day6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="13"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week2day7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="14"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/week3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/week3day1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="15"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week3day2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="16"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week3day3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="17"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week3day4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="18"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week3day5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="19"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week3day6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="20"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week3day7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="21"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/week4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/week4day1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="22"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week4day2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="23"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week4day3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="24"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week4day4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="25"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week4day5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="26"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week4day6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="27"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week4day7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="28"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/week5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/week5day1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="30"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week5day2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="31"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week5day3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week5day4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="2"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week5day5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="3"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week5day6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="4"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week5day7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="5"
+                android:textAlignment="center" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
