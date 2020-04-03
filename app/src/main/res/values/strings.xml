@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyCalendarApp</string>
+    <string name="menu_addnote">Add Note</string>
+    <string name="menu_addtask">Add Task</string>
+    <string name="menu_viewinfo">See Notes/Tasks</string>
+
 </resources>

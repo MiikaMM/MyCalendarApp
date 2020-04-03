@@ -7,13 +7,42 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/month"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="8"
-        android:text="January"
-        android:textAlignment="center" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/monthBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:text="<" />
+
+        <TextView
+            android:id="@+id/month"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:text="January"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/monthForward"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:text=">" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/testbutton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:onClick="dayClicked"
+        android:text="Button" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -32,6 +61,7 @@
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:clickable="false"
                 android:text="1"
                 android:textAlignment="center" />
 
@@ -374,5 +404,78 @@
                 android:text="5"
                 android:textAlignment="center" />
         </TableRow>
+
+        <TableRow
+            android:id="@+id/week6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/week6day1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="30"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week6day2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="31"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week6day3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week6day4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:text="2"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week6day5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:text="3"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week6day6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="4"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/week6day7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:text="5"
+                android:textAlignment="center" />
+        </TableRow>
+
     </TableLayout>
+
 </LinearLayout>
