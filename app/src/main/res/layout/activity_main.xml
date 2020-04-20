@@ -7,400 +7,671 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="8"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/toolbar_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/toolbar_display_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1990"
+                android:textSize="24sp"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/prev_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="monthScrollClicked"
+                    android:text="Prev" />
+
+                <TextView
+                    android:id="@+id/toolbar_display_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="72dp"
+                    android:gravity="center"
+                    android:text="December"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/next_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="monthScrollClicked"
+                    android:text="Next" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/toolbar_display_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="23rd"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/toolbar_display_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Friday"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/toolbar_display_todayButton"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="Go To Today"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/weekday_header"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/monthPrev"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:onClick="monthScrollClicked"
-            android:text="Prev" />
+        <TextView
+            android:id="@+id/weekday_header_mon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="MON"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/monthText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="January"
-            android:textAlignment="center" />
+            android:id="@+id/weekday_header_tue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="TUE"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/monthNext"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:onClick="monthScrollClicked"
-            android:text="Next" />
+        <TextView
+            android:id="@+id/weekday_header_wed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="WED"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/weekday_header_thu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="THU"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/weekday_header_fri"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="FRI"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/weekday_header_sat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="SAT"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/weekday_header_sun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="SUN"
+            android:textStyle="bold" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/testbutton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="8"
-        android:onClick="dayClicked"
-        android:text="Button" />
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2">
+        android:layout_height="240dp"
+        android:layout_marginBottom="10dp">
 
-        <TableRow
+        <LinearLayout
             android:id="@+id/week1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/week1day1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
                 android:clickable="false"
-                android:text="1"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="01"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week1day2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
-                android:text="2"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="02"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week1day3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
-                android:text="3"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="03"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week1day4"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
-                android:text="4"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="04"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week1day5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
-                android:text="5"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="05"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week1day6"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
-                android:text="6"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="06"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week1day7"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
-                android:text="7"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="07"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:id="@+id/week2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
 
             <TextView
                 android:id="@+id/week2day1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_column="1"
                 android:layout_weight="1"
-                android:text="8"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="08"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week2day2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_column="2"
                 android:layout_weight="1"
-                android:text="9"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="09"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week2day3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="10"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week2day4"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="11"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week2day5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_column="2"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="12"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week2day6"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="13"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week2day7"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="14"
-                android:textAlignment="center" />
-        </TableRow>
+                android:textAlignment="center"
+                android:visibility="invisible" />
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:id="@+id/week3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
 
             <TextView
                 android:id="@+id/week3day1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="15"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week3day2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="16"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week3day3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="17"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week3day4"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="18"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week3day5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="19"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week3day6"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="20"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week3day7"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="21"
-                android:textAlignment="center" />
-        </TableRow>
+                android:textAlignment="center"
+                android:visibility="invisible" />
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:id="@+id/week4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
 
             <TextView
                 android:id="@+id/week4day1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="22"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week4day2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="23"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week4day3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="24"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week4day4"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="25"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week4day5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="26"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week4day6"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="27"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week4day7"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="28"
-                android:textAlignment="center" />
-        </TableRow>
+                android:textAlignment="center"
+                android:visibility="invisible" />
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:id="@+id/week5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
 
             <TextView
                 android:id="@+id/week5day1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="30"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week5day2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="31"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week5day3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week5day4"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:layout_weight="1"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week5day5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="2"
                 android:layout_weight="1"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week5day6"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/week5day7"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_column="3"
                 android:layout_weight="1"
-                android:textAlignment="center" />
-        </TableRow>
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/week6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+
+            <TextView
+                android:id="@+id/week6day1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/week6day2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/week6day3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/week6day4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/week6day5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/week6day6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/week6day7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_column="3"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00"
+                android:textAlignment="center"
+                android:visibility="invisible" />
+        </LinearLayout>
 
     </TableLayout>
 
