@@ -19,29 +19,53 @@ import java.time.YearMonth;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+/**
+ * Calendar Application
+ * MainActivity is where the application's main view
+ * is, as well as the logic behind the calendar.
+ *
+ * @author 	Miika Minkkinen
+ * @version 1.0
+ * @since 	2020-04-21
+ *
+ */
+public class MainActivity extends AppCompatActivity {
 	private final String TAG = "MunTagi";
 
+	// String Arrays for containing the names for
+	// months and weekdays.
 	private String[] monthNames;
 	private String[] weekDayNames;
 
+	// java.util.Calendar, used for accessing
+	// current time and logic of a calendar.
 	private Calendar currentTime;
 
+	// Storing what time information is
+	// displayed currently on the app.
 	private int currentDisplayedYear;
 	private int currentDisplayedMonth;
 	private int currentDisplayedDate;
 	private int currentDisplayedDay;
 
+	// Number of days in the month.
 	private int numberOfDitM;
+	// First day of the month.
 	private int firstDotM;
 
+	// TextView's for accessing the layout.
 	private TextView yearDisplay;
 	private TextView monthDisplay;
 	private TextView dateDisplay;
 	private TextView dayDisplay;
 
-	private int janFirstDoW;
 
+	/**
+	 * Inside "onCreate()" many of the fields are initialized
+	 * and at the end "toToday()" is called.
+	 *
+	 * {inheritdoc}
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,6 +92,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 	}
 
+	/**
+	 * Sets the calendar display back to the current year and month.
+	 *
+	 * Calls "updateMonthData()" and "updateCurrentTimeDisplay()" at the end.
+	 */
 	public void toToday() {
 		currentTime = Calendar.getInstance();
 		currentTime.setFirstDayOfWeek(Calendar.MONDAY);
@@ -86,19 +115,19 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 		numberOfDitM = currentTime.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-		/*Calendar c = currentTime;
-		c.set(Calendar.DAY_OF_MONTH, 1);
-		firstDotM = c.get(Calendar.DAY_OF_WEEK) - 1;*/
-
 		updateMonthData();
 
-//		Log.d(TAG, "The year is: " + currentDisplayedYear);
-//		Log.d(TAG, "The month is: " + monthNames[currentDisplayedMonth-1]);
-//		Log.d(TAG, "The day of the month is: " + currentDisplayedDate);
-//		Log.d(TAG, "The current weekday is: " + weekDayNames[currentDisplayedDay]); // -1
 		updateCurrentTimeDisplay(currentDisplayedMonth, currentDisplayedYear);
 	}
 
+	/**
+	 * Updates the information to
+	 * correspond to the month being displayed.
+	 * For example how many days there are in the month,
+	 * and what weekday the first day of the month is.
+	 *
+	 * Calls "updateCalendarGrid()" at the end.
+	 */
 	public void updateMonthData() {
 		Calendar c = Calendar.getInstance();
 		c.set(currentDisplayedYear, currentDisplayedMonth - 1, currentDisplayedDate);
@@ -108,13 +137,16 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 		c.set(Calendar.DAY_OF_MONTH, 1);
 		firstDotM = c.get(Calendar.DAY_OF_WEEK) - 1;
 
-//		Log.d(TAG, "The month is: " + monthNames[currentDisplayedMonth-1]);
-//		Log.d(TAG, "The number of days in the month is: " + numberOfDitM);
-//		Log.d(TAG, "The first day of the month is: " + weekDayNames[firstDotM] + ", (" + firstDotM + ")");
-
 		updateCalendarGrid();
 	}
 
+	/**
+	 * Goes through the calendar grid in the display
+	 * and updates all of the day-TextViews with the new
+	 * information gathered in "updateMonthData()"
+	 *
+	 * Calls "highlightCurrentDate()" at the end.
+	 */
 	public void updateCalendarGrid() {
 		Log.d(TAG, "updateCalendarGrid()");
 
@@ -163,13 +195,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 		highlightCurrentDate();
 	}
 
-	public void dayClicked(View v) {
-		PopupMenu popup = new PopupMenu(MainActivity.this, v);
-		popup.setOnMenuItemClickListener(MainActivity.this);
-		popup.inflate(R.menu.menu_day_popup);
-		popup.show();
-	}
-
+	/**
+	 * Highlights the date that is today,
+	 * if the displayed month and year are current.
+	 */
 	public void highlightCurrentDate() {
 		Log.d(TAG, "HIGHLIGHT: current displayed month and current month: " + (currentDisplayedMonth - 1) + ", " + currentTime.get(Calendar.MONTH));
 		Log.d(TAG, "HIGHLIGHT: current displayed year and current year: " + currentDisplayedYear + ", " + currentTime.get(Calendar.YEAR));
@@ -201,14 +230,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 	}
 
+	/**
+	 * Called when either "previous" or "next" -buttons
+	 * are pressed.
+	 * Changes the displayed month to the next or previous month.
+	 *
+	 * @param v the View (Button in this case) that called the method.
+	 */
 	public void monthScrollClicked(View v) {
 		Log.d(TAG, "monthScrollClicked");
 
 		if(v.getId() == R.id.prev_button) {
-			//Log.d(TAG, "monthScrollClicked, monthPrev");
-
 			if(currentDisplayedMonth > 1) {
-				//Log.d(TAG, "monthScrollClicked, monthPrev, if-check passed");
 
 				updateCurrentTimeDisplay(currentDisplayedMonth - 1, currentDisplayedYear);
 			} else if(currentDisplayedMonth == 1) {
@@ -216,11 +249,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 			}
 		}
 		if(v.getId() == R.id.next_button) {
-			//Log.d(TAG, "monthScrollClicked, monthNext");
 
 			if(currentDisplayedMonth < 12) {
-				//Log.d(TAG, "monthScrollClicked, monthNext, if-check passed");
-
 				updateCurrentTimeDisplay(currentDisplayedMonth + 1, currentDisplayedYear);
 			} else if(currentDisplayedMonth == 12) {
 				updateCurrentTimeDisplay(1, currentDisplayedYear + 1);
@@ -228,6 +258,15 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 		}
 	}
 
+	/**
+	 * Updates the TextViews in the app display with the updated
+	 * year, month, date or day values.
+	 *
+	 * Calls "updateMonthData()".
+	 *
+	 * @param month month to be changed as the new displayed one.
+	 * @param year year to be changed as the new displayed one.
+	 */
 	public void updateCurrentTimeDisplay(int month, int year) {
 		Log.d(TAG, "updateCurrentTimeDisplay");
 
@@ -238,9 +277,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 		if(year >= 1 && year <= 9999) {
 			currentDisplayedYear = year;
 		}
-
-		//Log.d(TAG, "UpdateMonthDisplay: currentDisplayedMonth: " + currentDisplayedMonth);
-		//Log.d(TAG, "UpdateMonthDisplay: to be monthText: " + monthNames[currentDisplayedMonth-1]);
 
 		updateMonthData();
 
@@ -254,26 +290,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 		String dateString = currentDisplayedDate + ordinalInd;
 		dateDisplay.setText(dateString);
 
-		String dayString = weekDayNames[currentDisplayedDay];	// -1
+		String dayString = weekDayNames[currentDisplayedDay];
 		dayDisplay.setText(dayString);
-	}
-
-	@Override
-	public boolean onMenuItemClick(MenuItem item) {
-		Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
-
-		switch (item.getItemId()) {
-			case R.id.addnote:
-				// TBA
-				return true;
-			case R.id.addtask:
-				// TBA
-				return true;
-			case R.id.viewinfo:
-				// TBA
-				return true;
-			default:
-				return false;
-		}
 	}
 }
